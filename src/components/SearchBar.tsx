@@ -16,7 +16,7 @@ export function SearchBar({ nightModeOff }: SearchBarProps) {
           nightModeOff ? "text-[#4B6A9B]" : "text-[#FFFFFF]"
         } `}
       ></input>
-      <button className={`w-[106px] h-[50px] rounded-[10px] bg-[#0079FF] ${nightModeOff ? "text-[#4B6A9B]" : "text-[#FFFFFF]"
+      <button className={`w-[106px] h-[50px] rounded-[10px] bg-[#0079FF] text-[#FFF] font-700"
         } `}>Search</button>
     </div>
   );
