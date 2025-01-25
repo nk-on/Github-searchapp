@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
 import APIResponse from "../APIResponse";
-import { data } from "react-router";
+import Stats from "./Stats";
+import { statsData } from "../StatsData";
+import UserDataContainer from "./userDataContainer";
+import { userDataObj } from "../userData";
 interface ContainerProps {
   nightModeOff: boolean;
 }
 export default function Container({ nightModeOff }: ContainerProps) {
+  console.log(userDataObj)
   const query = "octocat";
   const [userData, setUserData] = useState<APIResponse | null>(null);
   const url = `https://api.github.com/users/${query}`;
-  async function fetchData() {
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data)
-    setUserData({ ...data });
-  }
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // async function fetchData() {
+  //   const res = await fetch(url);
+  //   const data = await res.json();
+  //   console.log(data)
+  //   setUserData({ ...data });
+  // }
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
   return (
     <>
       <div
@@ -43,36 +47,20 @@ export default function Container({ nightModeOff }: ContainerProps) {
             volutpat mattis eros.
           </div>
           <div className="w-[90%] md:w-[480px] h-[85px] bg-[#F6F8FF] flex justify-between p-[20px]">
-            <div className="flex flex-col justify-center">
-                <p>Repos</p>
-                <h1>8</h1>
-            </div>
-            <div className="flex flex-col justify-center">
-                <p>Followers</p>
-                <h1>8</h1>
-            </div>
-            <div className="flex flex-col justify-center">
-                <p>Following</p>
-                <h1>8</h1>
-            </div>
+            {
+              statsData.map((element)=>{
+                return <Stats  title = {element.title} amount = {element.data}  />
+              })
+            }
           </div>
           <div className="md:grid grid-cols-2 gap-[50px]">
-            <div className="flex grid ">
-              <img src="src/assets/Location.svg" alt="location"></img>
-              <p className="text-[15px] text-[#4B6A9B]">San franciso</p>
-            </div>
-            <div className="flex">
-              <img src="src/assets/Location.svg" alt="location"></img>
-              <p className="text-[15px] text-[#4B6A9B]">San franciso</p>
-            </div>
-            <div className="flex">
-              <img src="src/assets/Location.svg" alt="location"></img>
-              <p className="text-[15px] text-[#4B6A9B]">San franciso</p>
-            </div>
-            <div className="flex">
-              <img src="src/assets/Location.svg" alt="location"></img>
-              <p className="text-[15px] text-[#4B6A9B]">San franciso</p>
-            </div>
+            {
+             userDataObj.map((element)=>{
+              return (
+                <UserDataContainer imagePath={element.imagePath} title={element.title} />
+              )
+             })
+            }
           </div>
         </div>
       </div>
