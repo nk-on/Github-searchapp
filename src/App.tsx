@@ -12,7 +12,7 @@ function App() {
           nightModeOff ? "bg-[#F6F8FF]" : "bg-[#141D2F]"
         }`}
       >
-        <div className="flex flex-col gap-[10px] w-[90%] md:w-[730px] h-[600px]">
+        <div className="flex flex-col gap-[10px] min-w-[90%] md:min-w-[730px] h-[600px]">
           <Header nightModeOff={nightModeOff} setNightModeOff={setNightModeOff}></Header>
           <SearchBar nightModeOff={nightModeOff}></SearchBar>
           <Container nightModeOff={nightModeOff}></Container>
