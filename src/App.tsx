@@ -17,7 +17,7 @@ function App() {
       >
         <div className="flex flex-col gap-[10px] min-w-[90%] md:min-w-[730px] h-[600px]">
           <Header nightModeOff={nightModeOff} setNightModeOff={setNightModeOff}></Header>
-          <SearchBar nightModeOff={nightModeOff} setUserData={setUserData} setQuery = {setQuery}></SearchBar>
+          <SearchBar nightModeOff={nightModeOff} setQuery = {setQuery}></SearchBar>
           <Container
             nightModeOff={nightModeOff}
             userData={userData}
