@@ -1,6 +1,6 @@
 interface userDataProp{
     imagePath:string,
-    title:string,
+    title:string | undefined |null,
 }
 export default function UserDataContainer({imagePath,title}:userDataProp){
     return (

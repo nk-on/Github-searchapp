@@ -20,6 +20,7 @@ export default function Container({
     const url = `https://api.github.com/users/${query}`;
     const res = await fetch(url);
     const data = await res.json();
+    console.log(data)
     setUserData({ ...data });
   }
   useEffect(() => {
@@ -50,20 +51,18 @@ export default function Container({
             </p>
           </div>
           <div className="text-[#4B6A9B] w-[100%] md:w-[480px]">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque
-            volutpat mattis eros.
+            {userData?.bio}
           </div>
           <div className="w-[90%] md:w-[480px] h-[85px] bg-[#F6F8FF] flex justify-between p-[20px]">
-            {statsData.map((element) => {
-              return <Stats title={element.title} amount={element.data} />;
-            })}
+            <Stats title="Repos" amount = {Number(userData?.public_repos)}></Stats>
+            <Stats title="Followers" amount = {Number(userData?.followers)}></Stats>
+            <Stats title="Following" amount = {Number(userData?.following)}></Stats>
           </div>
           <div className="md:grid grid-cols-2 gap-[50px]">
-            {userDataObj.map((element) => {
-              return (
-                <UserDataContainer imagePath={element.imagePath} title={element.title} />
-              );
-            })}
+            <UserDataContainer imagePath={'src/assets/Location.svg'} title = {userData?.location}></UserDataContainer>
+            <UserDataContainer imagePath={'src/assets/004-twitter.svg'} title = {userData?.twitter_username}></UserDataContainer>
+            <UserDataContainer imagePath={'src/assets/002-url.svg'} title = {userData?.blog}></UserDataContainer>
+            <UserDataContainer imagePath={'src/assets/Office.svg'} title = {userData?.company}></UserDataContainer>
           </div>
         </div>
       </div>
