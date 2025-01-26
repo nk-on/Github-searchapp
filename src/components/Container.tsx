@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import Stats from "./Stats";
-import { statsData } from "../StatsData";
 import UserDataContainer from "./userDataContainer";
-import { userDataObj } from "../userData";
 import APIResponse from "../APIResponse";
 interface ContainerProps {
   nightModeOff: boolean;
