@@ -20,13 +20,13 @@ export default function Container({
     try {
       const url = `https://api.github.com/users/${query}`;
       const res = await fetch(url);
-      if(!res.ok){
-        throw new Error
+      if (!res.ok) {
+        throw new Error();
       }
       const data = await res.json();
       setError(false);
       setUserData({ ...data });
-    } catch(error) {
+    } catch (error) {
       setError(true);
     }
   }
@@ -36,7 +36,7 @@ export default function Container({
   return (
     <>
       <div
-        className={`w-[100%] h-[444px] ${
+        className={`w-[100%] h-[444px] rounded-[15px] ${
           nightModeOff ? 'bg-[#FEFEFE]' : 'bg-[#1E2A47]'
         } p-[40px] flex`}
       >
@@ -64,7 +64,14 @@ export default function Container({
             </p>
           </div>
           <div className="text-[#4B6A9B] w-[100%] md:w-[480px]">
-            {userData?.bio}
+            {userData?.bio ? (
+              userData?.bio
+            ) : (
+              <div>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec
+                odio. Quisque volutpat mattis eros.
+              </div>
+            )}
           </div>
           <div
             className={`w-[90%] md:w-[480px] h-[85px] flex justify-between p-[20px] ${
