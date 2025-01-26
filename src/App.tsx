@@ -3,8 +3,11 @@ import "./App.css";
 import Header from "./components/Header";
 import Container from "./components/Container";
 import { SearchBar } from "./components/SearchBar";
+import APIResponse from "./APIResponse";
 function App() {
   const [nightModeOff, setNightModeOff] = useState<boolean>(true);
+  const [userData, setUserData] = useState<APIResponse | null>(null);
+  const [query,setQuery] = useState<string>('octocat')
   return (
     <>
       <div
@@ -14,8 +17,13 @@ function App() {
       >
         <div className="flex flex-col gap-[10px] min-w-[90%] md:min-w-[730px] h-[600px]">
           <Header nightModeOff={nightModeOff} setNightModeOff={setNightModeOff}></Header>
-          <SearchBar nightModeOff={nightModeOff}></SearchBar>
-          <Container nightModeOff={nightModeOff}></Container>
+          <SearchBar nightModeOff={nightModeOff} setUserData={setUserData} setQuery = {setQuery}></SearchBar>
+          <Container
+            nightModeOff={nightModeOff}
+            userData={userData}
+            setUserData={setUserData}
+            query = {query}
+          ></Container>
         </div>
       </div>
     </>
