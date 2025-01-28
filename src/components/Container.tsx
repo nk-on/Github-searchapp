@@ -60,10 +60,10 @@ export default function Container({
               </h1>
               <p className="text-[#0079FF]">@{userData?.login}</p>
             </div>
-            <p className="text-[#697C9A]">
-              joined {date.current.getDay()}{' '}
-              {date.current.getFullYear()}
-            </p>
+            <div className="text-[#697C9A] flex justify-between w-[166px]">
+              <p>joined {date.current.getDay()}{' '}</p> <p>{date.current.toLocaleString('en-US',{month:'short'})}</p>
+              <p>{date.current.getFullYear()}</p>
+            </div>
           </div>
           <div className="text-[#4B6A9B] w-[100%] md:w-[480px]">
             {userData?.bio ? (
