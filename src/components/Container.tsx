@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Stats from './Stats';
 import UserDataContainer from './userDataContainer';
 import APIResponse from '../APIResponse';
@@ -16,6 +16,7 @@ export default function Container({
   query,
   setError,
 }: ContainerProps) {
+  const date = useRef(new Date())
   async function fetchData() {
     try {
       const url = `https://api.github.com/users/${query}`;
@@ -26,6 +27,7 @@ export default function Container({
       const data = await res.json();
       setError(false);
       setUserData({ ...data });
+      date.current = new Date(data.created_at);
     } catch (error) {
       setError(true);
     }
@@ -59,8 +61,8 @@ export default function Container({
               <p className="text-[#0079FF]">@{userData?.login}</p>
             </div>
             <p className="text-[#697C9A]">
-              joined {new Date('2022-10-20T11:18:49Z').getDay()}{' '}
-              {new Date('2022-10-20T11:18:49Z').getFullYear()}
+              joined {date.current.getDay()}{' '}
+              {date.current.getFullYear()}
             </p>
           </div>
           <div className="text-[#4B6A9B] w-[100%] md:w-[480px]">
