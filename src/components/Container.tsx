@@ -45,7 +45,7 @@ export default function Container({
         <div className="w-[30%] h-[100%]">
           <img
             src={userData?.avatar_url}
-            className="w-[117px] h-[117px] rounded-[50%]"
+            className="w-24 sm:w-32 md:w-40 lg:w-48 h-auto rounded-full object-cover"
           ></img>
         </div>
         <div className="w-[90%] flex flex-col gap-[15px]">
