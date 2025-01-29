@@ -5,7 +5,8 @@ import Container from "./components/Container";
 import { SearchBar } from "./components/SearchBar";
 import APIResponse from "./APIResponse";
 function App() {
-  const [nightModeOff, setNightModeOff] = useState<boolean>(true);
+  const nightMode:string | null = localStorage.getItem('nightMode');
+  const [nightModeOff, setNightModeOff] = useState<boolean>(nightMode ? JSON.parse(nightMode) : true);
   const [userData, setUserData] = useState<APIResponse | null>(null);
   const [query,setQuery] = useState<string>('octocat');
   const [error,setError] = useState<boolean>(false)

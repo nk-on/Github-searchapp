@@ -9,10 +9,11 @@ export default function Header({ nightModeOff, setNightModeOff }: HeaderProps) {
       <span className="flex gap-[5px] text-[13px]">
         {nightModeOff ? "Dark" : "Light"}{" "}
         <img
-          src={nightModeOff ? "../public/assets/NightIcon.svg" : "src/assets/DayIcon.svg"}
+          src={nightModeOff ? "../public/assets/NightIcon.svg" : "../public/assets/DayIcon.svg"}
           alt="ModeIcon"
           onClick={()=>{
             setNightModeOff(!nightModeOff);
+            localStorage.setItem('nightMode',JSON.stringify(!nightModeOff));
           }}
           className="cursor-pointer w-[20px] h-[20px]"
         ></img>
