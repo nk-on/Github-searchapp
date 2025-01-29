@@ -17,7 +17,7 @@ export default function Container({
   setError,
 }: ContainerProps) {
   const date = useRef(new Date())
-  async function fetchData() {
+  async function fetchData():Promise<void> {
     try {
       const url = `https://api.github.com/users/${query}`;
       const res = await fetch(url);
