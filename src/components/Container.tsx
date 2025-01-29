@@ -28,7 +28,7 @@ export default function Container({
       setError(false);
       setUserData({ ...data });
       date.current = new Date(data.created_at);
-    } catch (error) {
+    } catch  {
       setError(true);
     }
   }
