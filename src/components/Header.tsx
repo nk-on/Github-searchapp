@@ -9,7 +9,7 @@ export default function Header({ nightModeOff, setNightModeOff }: HeaderProps) {
       <span className="flex gap-[5px] text-[13px]">
         {nightModeOff ? "Dark" : "Light"}{" "}
         <img
-          src={nightModeOff ? "../public/assets/NightIcon.svg" : "../public/assets/DayIcon.svg"}
+          src={nightModeOff ? "./assets/NightIcon.svg" : "./assets/DayIcon.svg"}
           alt="ModeIcon"
           onClick={()=>{
             setNightModeOff(!nightModeOff);

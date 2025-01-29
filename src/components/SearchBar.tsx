@@ -12,7 +12,7 @@ export function SearchBar({ nightModeOff ,setQuery,error}: SearchBarProps) {
         nightModeOff ? "bg-[#FEFEFE]" : "bg-[#1E2A47]"
       }`}
     >
-      <img src='../public/assets/Combined Shape.svg' className="w-[24px] h-[24px]"></img>
+      <img src='./assets/Combined Shape.svg' className="w-[24px] h-[24px]"></img>
       <input
         type="search"
         onChange={(event)=>{
