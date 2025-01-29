@@ -1,8 +1,13 @@
+import { useEffect } from "react";
+
 interface HeaderProps {
   nightModeOff: boolean;
   setNightModeOff: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export default function Header({ nightModeOff, setNightModeOff }: HeaderProps) {
+  useEffect(()=>{
+    localStorage.setItem('nightMode',JSON.stringify(nightModeOff));
+  },[nightModeOff]);
   return (
     <div className={`w-[100%] flex justify-between items-center ${!nightModeOff && "text-[#FFF]"}`}>
       <h1 className="font-bold text-[26px]">devfinder</h1>
@@ -13,7 +18,6 @@ export default function Header({ nightModeOff, setNightModeOff }: HeaderProps) {
           alt="ModeIcon"
           onClick={()=>{
             setNightModeOff(!nightModeOff);
-            localStorage.setItem('nightMode',JSON.stringify(!nightModeOff));
           }}
           className="cursor-pointer w-[20px] h-[20px]"
         ></img>
