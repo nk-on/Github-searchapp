@@ -99,19 +99,19 @@ export default function Container({
             }`}
           >
             <UserDataContainer
-              imagePath={'src/assets/Location.svg'}
+              imagePath={'../public/assets/Location.svg'}
               title={userData?.location}
             ></UserDataContainer>
             <UserDataContainer
-              imagePath={'src/assets/004-twitter.svg'}
+              imagePath={'../public/assets/004-twitter.svg'}
               title={userData?.twitter_username}
             ></UserDataContainer>
             <UserDataContainer
-              imagePath={'src/assets/002-url.svg'}
+              imagePath={'../public/assets/002-url.svg'}
               title={userData?.blog}
             ></UserDataContainer>
             <UserDataContainer
-              imagePath={'src/assets/Office.svg'}
+              imagePath={'../public/assets/Office.svg'}
               title={userData?.company}
             ></UserDataContainer>
           </div>
