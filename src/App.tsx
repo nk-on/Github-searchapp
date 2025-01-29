@@ -8,7 +8,7 @@ function App() {
   const nightMode:string | null = localStorage.getItem('nightMode');
   const [nightModeOff, setNightModeOff] = useState<boolean>(nightMode ? JSON.parse(nightMode) : true);
   const [userData, setUserData] = useState<APIResponse | null>(null);
-  const [query,setQuery] = useState<string>('octocat');
+  const [query,setQuery] = useState<string | null>(localStorage.getItem('query') ? localStorage.getItem('query') : 'octocat');
   const [error,setError] = useState<boolean>(false)
   return (
     <>

@@ -1,11 +1,11 @@
 import { useRef } from "react";
 interface SearchBarProps {
   nightModeOff: boolean;
-  setQuery:React.Dispatch<React.SetStateAction<string>>
+  setQuery:React.Dispatch<React.SetStateAction<string | null>>
   error:boolean
 }
 export function SearchBar({ nightModeOff ,setQuery,error}: SearchBarProps) {
-  const searchQuery = useRef('')
+  const searchQuery = useRef('');
   return (
     <div
       className={`w-[100%] h-[69px] px-[50px] flex justify-between items-center rounded-[15px]  ${
@@ -15,8 +15,10 @@ export function SearchBar({ nightModeOff ,setQuery,error}: SearchBarProps) {
       <img src='./assets/Combined Shape.svg' className="w-[24px] h-[24px]"></img>
       <input
         type="search"
+        defaultValue={localStorage.getItem('query') ? localStorage.getItem('query') : ""}
         onChange={(event)=>{
           searchQuery.current = event.target.value;
+          localStorage.setItem('query',searchQuery.current);
         }}
         className={`w-[300px] h-[100%] px-[10px] ${nightModeOff ? "bg-[#FEFEFE]" : "bg-[#1E2A47]"} ${
           nightModeOff ? "text-[#4B6A9B]" : "text-[#FFFFFF]"

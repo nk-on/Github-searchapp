@@ -6,7 +6,7 @@ interface ContainerProps {
   nightModeOff: boolean;
   setUserData: React.Dispatch<React.SetStateAction<APIResponse | null>>;
   userData: APIResponse | null;
-  query: string;
+  query: string | null;
   setError: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export default function Container({
@@ -20,6 +20,7 @@ export default function Container({
   async function fetchData():Promise<void> {
     try {
       const url = `https://api.github.com/users/${query}`;
+      console.log(query)
       const res = await fetch(url);
       if (!res.ok) {
         throw new Error();
