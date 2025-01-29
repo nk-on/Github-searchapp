@@ -5,7 +5,6 @@ interface SearchBarProps {
   error:boolean
 }
 export function SearchBar({ nightModeOff ,setQuery,error}: SearchBarProps) {
-  console.log(nightModeOff);
   const searchQuery = useRef('')
   return (
     <div
