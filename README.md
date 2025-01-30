@@ -65,7 +65,7 @@ Follow these steps to get the app running locally:
 
 Here’s an example of the app interface:
 
-![GitHub Search App Screenshot]('./assets/Screenshot .png')
+![GitHub Search App Screenshot]('./assets/Screenshot.png')
 
 _Add a mock screenshot of your app named `mock-screenshot.png` in the project root directory._
 
