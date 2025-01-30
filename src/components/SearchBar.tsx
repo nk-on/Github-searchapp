@@ -15,7 +15,7 @@ export function SearchBar({ nightModeOff ,setQuery,error}: SearchBarProps) {
       <img src='./assets/Combined Shape.svg' className="w-[24px] h-[24px]"></img>
       <input
         type="search"
-        defaultValue={localStorage.getItem('query') ? localStorage.getItem('query') : ""}
+        defaultValue={localStorage.getItem('query') ||  ""}
         onChange={(event)=>{
           searchQuery.current = event.target.value;
           localStorage.setItem('query',searchQuery.current);
