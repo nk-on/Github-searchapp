@@ -41,7 +41,7 @@ export default function Container({
       <div
         className={`w-[100%] h-[444px] rounded-[15px] ${
           nightModeOff ? 'bg-[#FEFEFE]' : 'bg-[#1E2A47]'
-        } p-[40px] flex`}
+        } p-[40px] flex gap-[10px]`}
       >
         <div className="w-[30%] h-[100%]">
           <img
