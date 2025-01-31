@@ -28,6 +28,7 @@ export default function Container({
       const data = await res.json();
       setError(false);
       setUserData({ ...data });
+      console.log(data)
       date.current = new Date(data.created_at);
     } catch  {
       setError(true);
@@ -100,18 +101,22 @@ export default function Container({
             }`}
           >
             <UserDataContainer
+             containsLink = {false}
               imagePath={'./assets/Location.svg'}
               title={userData?.location}
             ></UserDataContainer>
             <UserDataContainer
+              containsLink = {true}
               imagePath={'./assets/004-twitter.svg'}
               title={userData?.twitter_username}
             ></UserDataContainer>
             <UserDataContainer
+              containsLink = {true}
               imagePath={'../assets/002-url.svg'}
               title={userData?.blog}
             ></UserDataContainer>
             <UserDataContainer
+              containsLink = {false}
               imagePath={'./assets/Office.svg'}
               title={userData?.company}
             ></UserDataContainer>
