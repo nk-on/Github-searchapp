@@ -9,7 +9,7 @@ export default function Header({ nightModeOff, setNightModeOff }: HeaderProps) {
     localStorage.setItem('nightMode',JSON.stringify(nightModeOff));
   },[nightModeOff]);
   return (
-    <div className={`w-[100%] flex justify-between items-center ${!nightModeOff && "text-[#FFF]"}`}>
+    <div className='w-[100%] flex justify-between items-center dark:text-[#FFF]'>
       <h1 className="font-bold text-[26px]">devfinder</h1>
       <span className="flex gap-[5px] text-[13px]">
         {nightModeOff ? "Dark" : "Light"}{" "}

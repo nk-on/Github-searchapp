@@ -3,14 +3,12 @@ import Stats from './Stats';
 import UserDataContainer from './userDataContainer';
 import APIResponse from '../APIResponse';
 interface ContainerProps {
-  nightModeOff: boolean;
   setUserData: React.Dispatch<React.SetStateAction<APIResponse | null>>;
   userData: APIResponse | null;
   query: string | null;
   setError: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export default function Container({
-  nightModeOff,
   userData,
   setUserData,
   query,
@@ -38,9 +36,7 @@ export default function Container({
   return (
     <>
       <div
-        className={`w-[100%] h-[444px] rounded-[15px] ${
-          nightModeOff ? 'bg-[#FEFEFE]' : 'bg-[#1E2A47]'
-        } p-[40px] flex gap-[10px]`}
+        className='w-[100%] h-[444px] rounded-[15px] bg-[#FEFEFE] dark:bg-[#1E2A47]  p-[40px] flex gap-[10px]'
       >
         <div className="w-[30%] h-[100%]">
           <img
@@ -52,9 +48,7 @@ export default function Container({
           <div className="w-[100%] flex justify-between">
             <div>
               <h1
-                className={`text-[26px] font-bold ${
-                  nightModeOff ? 'text-[#2B3442]' : 'text-[#fff]'
-                }`}
+                className='text-[26px] font-bold text-[#2B3442] dark:text-[#fff]'
               >
                 {userData?.login}
               </h1>
@@ -76,9 +70,7 @@ export default function Container({
             )}
           </div>
           <div
-            className={`w-[90%] md:w-[480px] h-[85px] flex justify-between p-[20px] ${
-              nightModeOff ? 'bg-[#F6F8FF]' : 'bg-[#141D2F]'
-            } ${nightModeOff ? 'text-[#2B3442]' : 'text-[#FFFFFF]'}`}
+            className='w-[90%] md:w-[480px] h-[85px] flex justify-between p-[20px] bg-[#F6F8FF] dark:bg-[#141D2F] text-[#2B3442] dark:text-[#FFFFFF]'
           >
             <Stats
               title="Repos"
@@ -94,9 +86,8 @@ export default function Container({
             ></Stats>
           </div>
           <div
-            className={`md:grid grid-cols-2 gap-[50px] ${
-              nightModeOff ? 'text-[#4B6A9B]' : 'text-[#FFF]'
-            }`}
+            className='md:grid grid-cols-2 gap-[50px] text-[#4B6A9B] dark:text-[#FFF]'
+            
           >
             <UserDataContainer
              containsLink = {false}
