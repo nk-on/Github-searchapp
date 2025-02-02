@@ -20,7 +20,6 @@ export default function Container({
   async function fetchData():Promise<void> {
     try {
       const url = `https://api.github.com/users/${query}`;
-      console.log(query)
       const res = await fetch(url);
       if (!res.ok) {
         throw new Error();
@@ -28,7 +27,6 @@ export default function Container({
       const data = await res.json();
       setError(false);
       setUserData({ ...data });
-      console.log(data)
       date.current = new Date(data.created_at);
     } catch  {
       setError(true);
