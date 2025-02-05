@@ -7,7 +7,7 @@ export function SearchBar({  setQuery, error }: SearchBarProps) {
   const searchQuery = useRef("");
   return (
     <div
-      className='w-[100%] h-[69px] px-[50px] flex justify-evenly items-center rounded-[15px] bg-[#FEFEFE] dark:bg-[#1E2A47]'
+      className='w-[100%] h-[69px] px-[30px] flex justify-between items-center rounded-[15px] bg-[#FEFEFE] dark:bg-[#1E2A47]'
     >
       <input
         type="search"
@@ -17,7 +17,7 @@ export function SearchBar({  setQuery, error }: SearchBarProps) {
           localStorage.setItem("query", searchQuery.current);
         }}
         placeholder="Search GitHub username…"
-        className='w-[90%] h-[100%] px-[10px] pl-[40px] bg-[#FEFEFE] dark:bg-[#1E2A47] text-[#4B6A9B] dark:text-[#FFFFFF] bg-[url(./assets/search.svg)] bg-no-repeat bg-center bg-left'
+        className='w-[90%] h-[100%] px-[10px] pl-[40px] bg-[#FEFEFE] outline-none dark:bg-[#1E2A47] text-[#4B6A9B] dark:text-[#FFFFFF] bg-[url(./assets/search.svg)] bg-no-repeat bg-center bg-left'
       ></input>
       {error && <div className="text-[15px] font-bold text-[#F74646]">No results</div>}
       <button
